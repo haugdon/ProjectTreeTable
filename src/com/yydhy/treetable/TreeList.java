@@ -9,6 +9,7 @@ import java.util.List;
  *
  * @author Administrator
  */
+//实体类对象 最重要两个属性depart_id 和parentid （父 depart_id属性）
 public class TreeList {
     private List<Department> resultNodes = new ArrayList<Department>();//树形结构排序之后list内容
     private List<Department> nodes; //传入list参数

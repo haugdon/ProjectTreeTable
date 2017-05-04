@@ -15,11 +15,16 @@
 
     $.fn.treeTable = function (opts) {
         opts = $.extend({
-            theme: 'default',
-            expandLevel: 1,
-            column: 0,
-            onSelect: function($treeTable, id){},
-            beforeExpand: function($treeTable, id){}
+            theme: 'default',//主题，有两个选项：default、vsStyle. 默认:default
+            expandLevel: 1,//树表的展开层次. 默认:1
+            column: 0,//可控制列的序号. 默认:0，即第一列
+            onSelect: function($treeTable, id){},//拥有controller自定义属性的元素的点击事件，return false则中止展开. 默认值:
+            //$treeTable 当前树表的jquery对象.
+            //id 当前行的id
+            //返回false，则直接退出，不会激发后面的beforeExpand和子节点的展开
+            beforeExpand: function($treeTable, id){}//展开子节点前触发的事件, 默认值：
+            //$treeTable 当前树表的jquery对象.
+            //id 当前行的id
         }, opts);
 
         var $treeTable = this;
@@ -49,7 +54,7 @@
 
         var pMap = {}, cMap = {};
         var $trs = $treeTable.find('tr');
-        initRelation($trs, true);    
+        initRelation($trs, true);
 
         $treeTable.click(function (event) {
             var $target = $(event.target);
@@ -74,7 +79,7 @@
                 } else if (className == css['AN'] + ' ' + css['HLS'] || className == css['AN'] + ' ' + css['HS']) {
                     var id = $target.parents('tr')[0].id;
                     $target.attr('class', css['AN'] + " " + (className.indexOf(css['HS']) != -1 ? css['HO'] : css['HLO']));
-                    
+
                     opts.beforeExpand($treeTable, id);
                     //展开所有直属节点，根据图标展开子孙节点
                     open(id);
@@ -82,7 +87,7 @@
                 }
             }
         });
-		
+
 		$treeTable.mouseover(hoverActiveNode).mouseout(hoverActiveNode);
 
         function hoverActiveNode(event) {
@@ -92,7 +97,7 @@
                 $target = $target.parents('tr[haschild]').find('[arrow]');
             }
 
-            if ($target.attr('arrow')) { 
+            if ($target.attr('arrow')) {
                 var className = $target.attr('class');
                 if (className && !className.indexOf(css['AN'])) {
                     var len = opts.theme.length + 1;
@@ -102,13 +107,13 @@
                     } else {
                         className = opts.theme + '_hover_' + className;
                     }
-                    
+
                     $target.attr('class', css['AN'] + ' ' + className);
                     return;
                 }
-            } 
+            }
         }
-        
+
         /** 初始化节点关系　*/
         function initRelation($trs, hideLevel) {
             //构造父子关系
@@ -117,7 +122,7 @@
                 pMap[pId] || (pMap[pId] = []);
                 pMap[pId].push(this.id);
                 cMap[this.id] = pId;
-                
+
                 //给这个tr增加类为了提高选择器的效率
                 $(this).addClass(pId);
             }).find('[controller]').css('cursor', 'pointer');
@@ -126,7 +131,7 @@
             $trs.each(function (i) {
                 if (!this.id) { return; }
                 var $tr = $(this);
-                
+
                 pMap[this.id] && $tr.attr('hasChild', true);
                 var pArr = pMap[cMap[this.id]];
                 if (pArr[0] == this.id) {
@@ -156,14 +161,14 @@
                         var className = $tr.attr('isLastOne') ? css['LO'] : css['O'];
                         $tr.find('.' + css['AN']).attr('class', css['AN'] + ' ' + className);
                     }
-                }               
+                }
             });
-            
+
             //递归获取深度
             function getDepth(id) {
-                if (cMap[id] == 0) { return 1; } 
+                if (cMap[id] == 0) { return 1; }
                 var $parentDepth = getDepth(cMap[id]);
-                return $parentDepth + 1; 
+                return $parentDepth + 1;
             }
         }
 
@@ -224,18 +229,18 @@
             } else {
                 var className = css['N'] + ' ' + ($cur.attr('isLastOne') ? css['LL'] : css['L']);
             }
-            
+
             var $td = $cur.children("td").eq(opts.column);
             $td.prepend('<span arrow="true" class="' + className + '"></span>').prepend($preSpan);
         };
-        
+
         $treeTable.addChilds = function(trsHtml) {
             var $trs = $(trsHtml);
             if (!$trs.length) { return false; }
-            
+
             var pId = $($trs[0]).attr('pId');
             if (!pId) { return false; }
-            
+
             //插入到最后一个孩子后面，或者直接插在父节点后面
             var insertId = pMap[pId] && pMap[pId][pMap[pId].length - 1] || pId;
             $('#' + insertId, $treeTable).after($trs);

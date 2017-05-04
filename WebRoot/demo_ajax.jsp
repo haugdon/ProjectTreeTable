@@ -1,3 +1,4 @@
+<%--Ajax调用数据库内容json 实现--%>
 <%@page import="com.yydhy.treetable.TreeList" %>
 <%@page import="com.yydhy.treetable.DepartmentDAO" %>
 <%@page import="com.yydhy.treetable.Department" %>
@@ -60,7 +61,7 @@
                     //以下为初始化表格样式
                     var option = {
                         theme: 'vsStyle',
-                        expandLevel: 2,
+                        expandLevel: 2,//树表的展开层次. 默认:1
                     };
                     $('#treeTable1').treeTable(option);
                     console.info("内容已经加载并初始化");

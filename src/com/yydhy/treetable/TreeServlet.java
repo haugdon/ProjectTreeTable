@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+//Java后台打包json数据库
 public class TreeServlet extends HttpServlet {
 
     @Override

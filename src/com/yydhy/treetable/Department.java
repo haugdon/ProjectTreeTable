@@ -3,8 +3,9 @@ package com.yydhy.treetable;
 import java.util.Date;
 
 /*
-数据库建表语句在末尾 测试数据插入  默认数据库是mysql  可根据实际情况修改
+ *数据库建表语句在末尾 测试数据插入  默认数据库是mysql  可根据实际情况修改
  */
+//实体类对象 最重要两个属性depart_id 和parentid （父 depart_id属性）
 public class Department implements java.io.Serializable {
     private static final long serialVersionUID = 1L;
     // Fields

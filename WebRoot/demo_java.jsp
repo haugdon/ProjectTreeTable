@@ -28,7 +28,7 @@
         //初始化表格样式和树形结构
         $(function () {
             var option1 = {
-                theme: 'vsStyle',
+                theme: 'vsStyle',//主题，有两个选项：default、vsStyle(三角形式). 默认:default(加减号那种形式)
                 expandLevel: 2,
             };
             $('#treeTable1').treeTable(option1);//根据表格id来初始化
