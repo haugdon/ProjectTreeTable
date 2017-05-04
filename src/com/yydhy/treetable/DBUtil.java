@@ -1,4 +1,5 @@
 package com.yydhy.treetable;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -8,7 +9,6 @@ import java.sql.SQLException;
  * 默认使用Oracle数据库连接 有main测试方法可以测试连接是否正确
  *
  * @author Administrator
- *
  */
 public class DBUtil {
     //MYSQL 数据库连接驱动信息
@@ -19,15 +19,15 @@ public class DBUtil {
     private static String password = "afe34345";
 
     //sqlserver 数据库连接驱动信息
-//    private static String driverclass ="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-//    private static String url = "jdbc:sqlserver://127.0.0.1:1433;DatabaseName=db_movie";
-//    private static String user = "sa";
-//    private static String password = "123456"; 
+    //private static String driverclass ="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    //private static String url = "jdbc:sqlserver://127.0.0.1:1433;DatabaseName=db_movie";
+    //private static String user = "sa";
+    //private static String password = "123456";
     //Oracle 数据库连接信息配置
-//	private static String driverclass="oracle.jdbc.driver.OracleDriver";
-//	private static String url="jdbc:oracle:thin:@172.16.3.8:1521:orcl";
-//	private static String user ="jsd1601";
-//	private static String password="jsd1601";
+    //private static String driverclass="oracle.jdbc.driver.OracleDriver";
+    //private static String url="jdbc:oracle:thin:@172.16.3.8:1521:orcl";
+    //private static String user ="jsd1601";
+    //private static String password="jsd1601";
     //1.加载驱动
     static {
         try {
@@ -39,17 +39,12 @@ public class DBUtil {
     }
     //2.创建连接
 
-    /*如何定义一个创建连接的方法
-	 * 返回值类型:是否有运算结果。
-	 * 			如果有，结果的类型即为返回值类型
-	 * 参数列表:功能中是否有不确定的数据参与运算
-	 * 		  如果有即为参数
-	 * 
+    /* 如何定义一个创建连接的方法
+     * 返回值类型:是否有运算结果。如果有，结果的类型即为返回值类型
+	 * 参数列表:功能中是否有不确定的数据参与运算。如果有即为参数
      */
-    public static Connection getConnection()
-            throws SQLException {
-        Connection conn
-                = DriverManager.getConnection(url, user, password);
+    public static Connection getConnection() throws SQLException {
+        Connection conn = DriverManager.getConnection(url, user, password);
         return conn;
     }
 

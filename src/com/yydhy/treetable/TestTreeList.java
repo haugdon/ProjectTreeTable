@@ -12,9 +12,9 @@ public class TestTreeList {
         DepartmentDAO dao = new DepartmentDAO();
         List<Department> list = dao.getDepartments();
         TreeList tree = new TreeList(list);
-         List<Department> listTree=tree.buildTree();
-         for (Department department : listTree) {
-             System.out.println(department.toString());
+        List<Department> listTree = tree.buildTree();
+        for (Department department : listTree) {
+            System.out.println(department.toString());
         }
     }
 }

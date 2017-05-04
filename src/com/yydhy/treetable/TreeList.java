@@ -12,12 +12,14 @@ import java.util.List;
 public class TreeList {
     private List<Department> resultNodes = new ArrayList<Department>();//树形结构排序之后list内容
     private List<Department> nodes; //传入list参数
+
     public TreeList(List<Department> nodes) {//通过构造函数初始化
         this.nodes = nodes;
     }
 
     /**
      * 构建树形结构list
+     *
      * @return 返回树形结构List列表
      */
     public List<Department> buildTree() {
@@ -30,6 +32,7 @@ public class TreeList {
         }
         return resultNodes;
     }
+
     /**
      * 递归循环子节点
      *
@@ -44,6 +47,7 @@ public class TreeList {
             }
         }
     }
+
     /**
      * @param node
      * @return 返回

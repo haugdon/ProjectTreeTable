@@ -22,13 +22,14 @@ public class DepartmentDAO {
 
     /**
      * 查询数据库部门表信息
-     * @return 
+     *
+     * @return
      */
     public List<Department> getDepartments() {
         try {
             conn = DBUtil.getConnection();
         } catch (SQLException ex) {
-            System.out.println("com.yydhy.treetable.DepartmentDAO.getDepartments()"+"数据库连接异常");
+            System.out.println("com.yydhy.treetable.DepartmentDAO.getDepartments()" + "数据库连接异常");
         }
         List<Department> list = new ArrayList<Department>();
         try {

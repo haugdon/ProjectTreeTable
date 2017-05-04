@@ -1,6 +1,7 @@
 package com.yydhy.treetable;
 
 import com.alibaba.fastjson.JSONObject;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
@@ -14,14 +15,12 @@ import javax.servlet.http.HttpServletResponse;
 public class TreeServletEL extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
         Map<String, Object> map = new HashMap<String, Object>();
         DepartmentDAO dao = new DepartmentDAO();

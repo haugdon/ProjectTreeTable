@@ -1,4 +1,4 @@
-package  com.yydhy.treetable;
+package com.yydhy.treetable;
 
 import java.util.Date;
 
@@ -130,7 +130,6 @@ public class Department implements java.io.Serializable {
         return "Department{" + "depart_id=" + depart_id + ", parentid=" + parentid + ", depart_name=" + depart_name + ", depart_type=" + depart_type + ", depart_order=" + depart_order + ", status=" + status + ", address=" + address + ", depart_phone=" + depart_phone + ", organ_id=" + organ_id + ", del_time=" + del_time + ", create_time=" + create_time + '}';
     }
 
-    
 
 }
 /*
