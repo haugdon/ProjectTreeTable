@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 根据实体类生成属性表格菜单 实体类有两个必须属性（set get方法） 会自动按照（id/pid）顺序递归对list集合内容排序 String
- * depart_id;//唯一id String parentid;//父id
- *
+ * 根据实体类生成属性表格菜单 实体类有两个必须属性（set get方法） 会自动按照（id/pid）顺序递归对list集合内容排序
+ * String depart_id;//唯一id
+ * String parentid;//父id
  * @author Administrator
  */
 //实体类对象 最重要两个属性depart_id 和parentid （父 depart_id属性）

@@ -1,4 +1,5 @@
 <%--EL表达式调用页面--%>
+<%--treeTable jsp El调用 实现--%>
 <%@page import="com.yydhy.treetable.TreeList" %>
 <%@page import="com.yydhy.treetable.DepartmentDAO" %>
 <%@page import="com.yydhy.treetable.Department" %>

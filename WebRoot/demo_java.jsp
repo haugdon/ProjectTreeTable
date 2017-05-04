@@ -1,3 +1,4 @@
+<%--treeTable jsp Java代码 实现--%>
 <%@page import="com.yydhy.treetable.TreeList" %>
 <%@page import="com.yydhy.treetable.DepartmentDAO" %>
 <%@page import="com.yydhy.treetable.Department" %>
@@ -16,7 +17,6 @@
             font-size: 16px;
         }
     </style>
-
     <!--此处引入自己的样式表和js文件 官方提供的 jquery.treeTable.js 文件引入jquery.treeTable.css 文件路径有问题
     如果F12 调试找不到该文件 可以直接在页面中引入 写成固定路径
       引用的文件 Begin-->
@@ -29,7 +29,7 @@
         $(function () {
             var option1 = {
                 theme: 'vsStyle',//主题，有两个选项：default、vsStyle(三角形式). 默认:default(加减号那种形式)
-                expandLevel: 2,
+                expandLevel: 2,//展开二级分类
             };
             $('#treeTable1').treeTable(option1);//根据表格id来初始化
         });

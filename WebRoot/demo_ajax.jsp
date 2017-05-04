@@ -1,4 +1,5 @@
 <%--Ajax调用数据库内容json 实现--%>
+<%--treeTable Ajax 实现--%>
 <%@page import="com.yydhy.treetable.TreeList" %>
 <%@page import="com.yydhy.treetable.DepartmentDAO" %>
 <%@page import="com.yydhy.treetable.Department" %>
